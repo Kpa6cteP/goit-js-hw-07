@@ -23,7 +23,6 @@ const boxes = document.querySelector('#boxes')
 
 controls.addEventListener('click', onClick)
 
-
 function onClick (e){
   if (e.target === render){
     const amount = Number(input.value)
@@ -35,21 +34,22 @@ function onClick (e){
 }
 
 function createBoxes (amount){
-  destroyBoxes()
+  destroyBoxes();
+
   const randomColor = () => (Math.random() * 255).toFixed(0);
-  let size = 30
-  for (let i = 0 ; i < amount ; i++){
-  const box = document.createElement('DIV')
-  const backgroundColor = `rgb(${randomColor()},${randomColor()},${randomColor()})`;
-  // const backgroundColor = '#'+Math.random().toString(16).substr(-6);
-  box.setAttribute("style",
-  `width:${size}px;
-  height:${size}px;
-  background-color:${backgroundColor};`)
-  console.log(box);
-  boxes.append(box)
-  size += 10;
-}}
+  let size = 30;
+  let array = [];
+
+  for (let i = 0 ; i < amount ; i++) {
+    const box = document.createElement('div')
+    const backgroundColor = `rgb(${randomColor()},${randomColor()},${randomColor()})`;
+    box.setAttribute("style", `width:${size}px; height:${size}px; background-color:${backgroundColor};`)
+    array.push(box);
+    size += 10;
+  }
+
+  boxes.append(...array);
+}
 
 function destroyBoxes (event){
   boxes.innerHTML = ''

@@ -17,12 +17,19 @@
 const liRefs = document.querySelectorAll('li.item');
 console.log(`В списке ${liRefs.length} категории.`);
 
-const h2Refs = document.querySelectorAll('li.item > h2');
-const liItems = document.querySelectorAll('li.item > ul');
+const h2Refs = document.querySelectorAll('h2');
 
-for (let i = 0; h2Refs.length > i; i++) {
-  console.log(`Категория: ${h2Refs[i].textContent}`);
-  console.log(
-    `Количество элементов: ${liItems[i].children.length}`
-  );
-}
+h2Refs.forEach(h2Ref => {
+  console.log(`Категория: ${h2Ref.textContent}`)
+  console.log(`Количество элементов: ${h2Ref.nextElementSibling.children.length}`);
+})
+
+
+// const h2Refs = document.querySelectorAll('li.item > h2');
+// const liItems = document.querySelectorAll('li.item > ul');
+// for (let i = 0; h2Refs.length > i; i++) {
+//   console.log(`Категория: ${h2Refs[i].textContent}`);
+//   console.log(
+//     `Количество элементов: ${liItems[i].children.length}`
+//   );
+// }

@@ -7,7 +7,7 @@
 // становится зеленым, если неправильное - красным.
 
 const input = document.querySelector("#validation-input");
-input.addEventListener("input", inputValidation);
+input.addEventListener("blur", inputValidation);
 
 function inputValidation(event) {
   if (event.currentTarget.value.length === 6) {
